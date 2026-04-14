@@ -2,13 +2,13 @@
 -------------------------------------------- General --------------------------------------------
 Config = {}
 Config.Framework = "newqb" -- newqb, oldqb, esx
-Config.NewESX = true
+Config.NewESX = false
 Config.Mysql = "oxmysql" -- mysql-async, ghmattimysql, oxmysql
 Config.MysqlTableName = "codem_hud_data" -- Don't change if you don't know what you're doing
 Config.Voice = "pma" -- mumble, saltychat, pma
 Config.DefaultHud = "radial" -- Default hud when player first login avaliable huds [radial, classic, text]
 Config.EnableDynamicStatusFirstJoin = false -- Enable dynamic status first join
-Config.DefaultSpeedUnit = "kmh" -- Default speed unit when player first login avaliable speed units [kmh, mph]
+Config.DefaultSpeedUnit = "mph" -- Default speed unit when player first login avaliable speed units [kmh, mph]
 Config.HudSettingsCommand = 'hudsettings' -- Command for open hud settings
 Config.DisplayMapOnWalk = true -- true - Show map when walking | false - Hide map when walking
 Config.DisplayRealTime = false -- if you set this to true will show the real time according to player local time | if false it will show the game time
