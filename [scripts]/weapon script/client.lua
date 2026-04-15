@@ -1,7 +1,7 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-local npcModel = "g_m_m_armboss_01"
-local npcCoords = vector4(22.0, -1107.2, 29.8, 160.0)
+local npcModel = "g_m_m_chicold_01"
+local npcCoords = vector4(23.21, -1105.6, 29.8, 140.23)
 
 local weapons = {
     {label = "Pistol", weapon = "weapon_pistol", price = 500},
@@ -9,6 +9,10 @@ local weapons = {
     {label = "Knife", weapon = "weapon_knife", price = 250}
 }
 
+local ammo = {
+    {label = "Pistol Ammo", item = "pistol_ammo", price = 100},
+    {label = "SMG Ammo", item = "smg_ammo", price = 150}
+}
 -- Create NPC + Target
 CreateThread(function()
     RequestModel(npcModel)
@@ -84,6 +88,12 @@ function OpenWeaponMenu()
         }
     }
 
+    -- Weapons section
+    menu[#menu + 1] = {
+        header = "⬇️ Weapons",
+        isMenuHeader = true
+    }
+
     for _, v in pairs(weapons) do
         menu[#menu + 1] = {
             header = v.label .. " - $" .. v.price,
@@ -98,6 +108,27 @@ function OpenWeaponMenu()
         }
     end
 
+    -- Ammo section
+    menu[#menu + 1] = {
+        header = "🔋 Ammo",
+        isMenuHeader = true
+    }
+
+    for _, v in pairs(ammo) do
+        menu[#menu + 1] = {
+            header = v.label .. " - $" .. v.price,
+            txt = "Purchase " .. v.label,
+            params = {
+                event = "npc_weaponshop:client:buyAmmo",
+                args = {
+                    item = v.item,
+                    price = v.price
+                }
+            }
+        }
+    end
+
+    -- Close
     menu[#menu + 1] = {
         header = "Close",
         txt = "",
@@ -106,7 +137,6 @@ function OpenWeaponMenu()
 
     exports['qb-menu']:openMenu(menu)
 end
-
-RegisterNetEvent("npc_weaponshop:client:buyWeapon", function(data)
-    TriggerServerEvent("npc_weaponshop:server:buyWeapon", data.weapon, data.price)
+RegisterNetEvent("npc_weaponshop:client:buyAmmo", function(data)
+    TriggerServerEvent("npc_weaponshop:server:buyAmmo", data.item, data.price)
 end)
