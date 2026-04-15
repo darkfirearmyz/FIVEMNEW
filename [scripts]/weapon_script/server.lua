@@ -37,5 +37,4 @@ RegisterNetEvent("npc_weaponshop:server:buyWeapon", function(weapon, price)
         TriggerClientEvent('QBCore:Notify', src, "You bought " .. item, "success")
     else
         TriggerClientEvent('QBCore:Notify', src, "Not enough cash!", "error")
-    end
-end)
+    end)
