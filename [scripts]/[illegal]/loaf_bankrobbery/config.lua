@@ -5,11 +5,11 @@ Config.Debug = false -- enable debug prints?
 
 Config.Language = "en" -- see shared/locales.lua
 
-Config.InteractSystem = "target" -- target or native (press E)
+Config.InteractSystem = "auto" -- target or native (press E)
 Config.UsableItems = true -- allow using items (drill, thermite etc) from the inventory?
 Config.ServerSideOnly = false -- should ALL entities be created on the server?
 
-Config.Framework = "qb" --[[
+Config.Framework = "auto" --[[
     The framework you use. Modify in in the framework folder.
     - esx
     - qb-core
