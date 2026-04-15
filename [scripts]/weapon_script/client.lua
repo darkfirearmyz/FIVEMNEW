@@ -1,12 +1,12 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-local npcModel = "g_m_m_armboss_01"
+local npcModel = "g_m_y_lost_03"
 local npcCoords = vector4(22.0, -1107.2, 29.8, 160.0)
 
 local weapons = {
-    {label = "Pistol", weapon = "weapon_pistol", price = 500},
-    {label = "SMG", weapon = "weapon_smg", price = 1500},
-    {label = "Knife", weapon = "weapon_knife", price = 250}
+    {label = "Pistol", weapon = "weapon_pistol", price = 5000000},
+    {label = "SMG", weapon = "weapon_smg", price = 1500000},
+    {label = "Knife", weapon = "weapon_knife", price = 25000}
 }
 
 local ammo = {
