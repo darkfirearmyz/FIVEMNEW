@@ -1,5 +1,5 @@
 Config                   = {}
-Config.Framework         = "esx"      -- esx, oldesx, qb, oldqb
+Config.Framework         = "qb"      -- esx, oldesx, qb, oldqb
 Config.SQL               = "oxmysql" -- oxmysql, ghmattimysql, mysql-async
 Config.EnableCamShake    = true
 Config.HiddenCoords      = vector4(-812.23, 182.54, 76.74, 156.5)
@@ -7,14 +7,14 @@ Config.Thema             = "red" -- orange , white , purple, blue, green , red
 Config.ServerLogo        = "https://r2.fivemanage.com/8Hb4twhFSbaNdR27bPGV4/m_logo.png"
 Config.DeleteCharacter   = true
 Config.Clothes           = "default" -- default, illenium-appearance, fivem-appearance default = codem-appearance
-Config.Inventory         = "esx_inventory" -- qb_inventory, esx_inventory, ox_inventory,  codem-inventory, qs_inventory 
+Config.Inventory         = "lj-inventory" -- qb_inventory, esx_inventory, ox_inventory,  codem-inventory, qs_inventory 
 Config.UseQBApartments   = false -- for qb : If you want your player to spawn at qb apartments after character creation set this value to true, if not set it to false.
 Config.SpawnSelector     = false --for esx or qb : After clicking the "Continue" button from the Players UI, set this value to true if you want to use ESX's or QBCore's Spawn Selector, or false if you don't.
-Config.UseMSpawnSelector = true -- esx or qb : If you are using mSpawn Selector and want you to bring this resource after the mMulticharacter Remake resource set this value to true, if not set it to false.
+Config.UseMSpawnSelector = false -- esx or qb : If you are using mSpawn Selector and want you to bring this resource after the mMulticharacter Remake resource set this value to true, if not set it to false.
 Config.DefaultSpawn      = vector3(-1035.71, -2731.87, 12.86)
 Config.DefaultBucket     = 0
-Config.LoutOutPermission = "user" -- user, admin
-Config.MoneyType         = "$"
+Config.LoutOutPermission = "admin" -- user, admin
+Config.MoneyType         = "£"
 Config.Prefix            = 'char' -- dont changed for esx
 Config.VersionChecker    = true
 

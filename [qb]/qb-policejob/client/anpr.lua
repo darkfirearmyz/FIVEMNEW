@@ -1,50 +1,62 @@
 local lastRadar = nil
 local HasAlreadyEnteredMarker = false
-
-local function IsInMarker(playerPos, speedCam)
-	return #(playerPos - speedCam) < 20.0
-end
-
-local function HandleSpeedCam(speedCam, radarID)
-	local playerPed = PlayerPedId()
-	local playerPos = GetEntityCoords(playerPed)
-	local isInMarker = IsInMarker(playerPos, speedCam)
+-- Determines if player is close enough to trigger cam
+function HandlespeedCam(speedCam, hasBeenBusted)
+	local myPed = PlayerPedId()
+	local playerPos = GetEntityCoords(myPed)
+	local isInMarker  = false
+	if #(playerPos - vector3(speedCam.x, speedCam.y, speedCam.z)) < 20.0 then
+		isInMarker  = true
+	end
 
 	if isInMarker and not HasAlreadyEnteredMarker and lastRadar == nil then
 		HasAlreadyEnteredMarker = true
-		lastRadar = radarID
-		local vehicle = GetVehiclePedIsIn(playerPed, false)
-		if vehicle == 0 then return end
-		local is_driver = GetPedInVehicleSeat(vehicle, -1) == playerPed
-		if not is_driver then return end
-		if GetVehicleClass(vehicle) == 18 then return end
-		local plate = QBCore.Functions.GetPlate(vehicle)
-		QBCore.Functions.TriggerCallback('police:server:IsPlateFlagged', function(isFlagged)
-			if isFlagged then
-				local coords = Config.Radars[radarID]
-				TriggerServerEvent('police:server:FlaggedPlateTriggered', coords, plate)
+		lastRadar = hasBeenBusted
+
+		local vehicle = GetPlayersLastVehicle() -- gets the current vehicle the player is in.
+		if IsPedInAnyVehicle(myPed, false) then
+			if GetPedInVehicleSeat(vehicle, -1) == myPed then
+				if GetVehicleClass(vehicle) ~= 18 then
+                    local plate = QBCore.Functions.GetPlate(vehicle)
+					QBCore.Functions.TriggerCallback('police:IsPlateFlagged', function(result)
+						if result then
+							local coords = GetEntityCoords(PlayerPedId())
+							local blipsettings = {
+								x = coords.x,
+								y = coords.y,
+								z = coords.z,
+								sprite = 488,
+								color = 1,
+								scale = 0.9,
+								text = "Speed camera #"..hasBeenBusted.." - Marked vehicle"
+							}
+							local s1, s2 = GetStreetNameAtCoord(coords.x, coords.y, coords.z)
+							local street1 = GetStreetNameFromHashKey(s1)
+							local street2 = GetStreetNameFromHashKey(s2)
+							TriggerServerEvent("police:server:FlaggedPlateTriggered", hasBeenBusted, plate, street1, street2, blipsettings)
+						end
+                    end, plate)
+				end
 			end
-		end, plate)
+		end
 	end
 
-	if not isInMarker and HasAlreadyEnteredMarker and lastRadar == radarID then
+	if not isInMarker and HasAlreadyEnteredMarker and lastRadar == hasBeenBusted then
 		HasAlreadyEnteredMarker = false
 		lastRadar = nil
 	end
 end
 
-if Config.EnableRadars then
-	CreateThread(function()
-		while true do
-			if IsPedInAnyVehicle(PlayerPedId(), false) then
-				for i = 1, #Config.Radars do
-					local value = Config.Radars[i]
-					HandleSpeedCam(value, i)
-				end
-				Wait(200)
-			else
-				Wait(2500)
+CreateThread(function()
+	while true do
+		Wait(1)
+		if IsPedInAnyVehicle(PlayerPedId(), false) then
+			for key, value in pairs(Config.Radars) do
+				HandlespeedCam(value, key)
 			end
+			Wait(200)
+		else
+			Wait(2500)
 		end
-	end)
-end
+	end
+end)

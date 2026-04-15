@@ -42,11 +42,11 @@ Config.Locations = {                -- Edit the various interaction points for p
         vector3(-254.54, 6331.78, 32.43), -- paleto
     },
     ['duty'] = {
-        vector3(311.18, -599.25, 43.29),
+        vector3(-1418.95, -275.45, 46.48),
         vector3(-254.88, 6324.5, 32.58), -- paleto
     },
     ['vehicle'] = {
-        vector4(294.578, -574.761, 43.179, 35.79),
+        vector4(-1423.87, -259.49, 46.48, 124.57),
         vector4(-234.28, 6329.16, 32.15, 222.5), -- paleto
     },
     ['helicopter'] = {
@@ -60,7 +60,7 @@ Config.Locations = {                -- Edit the various interaction points for p
         vector3(298.74, -599.33, 43.29),
     },
     ['stash'] = {
-        vector3(309.78, -596.6, 43.29),
+        vector3(-1428.13, -251.16, 46.48),
     },
     ['beds'] = {
         { coords = vector4(353.1, -584.6, 43.11, 152.08),    taken = false, model = 1631638868 },
