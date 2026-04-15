@@ -493,6 +493,14 @@ QBShared.Items = {
     recyclablematerial  = { name = "recyclablematerial",   label = "Recycle Box",      weight = 100, type = "item", 		image = "recyclablematerial.png",   unique = false, 	useable = false, 	shouldClose = false, combinable = nil,   description = "A box of Recyclable Materials"},
     bottle              = { name = "bottle",               label = "Empty Bottle",     weight = 10,  type = "item", 		image = "bottle.png",               unique = false, 	useable = false, 	shouldClose = false, combinable = nil,   description = "A glass bottle"},
     can                 = { name = "can",                  label = "Empty Can",        weight = 10,  type = "item", 		image = "can.png",                  unique = false, 	useable = false, 	shouldClose = false, combinable = nil,   description = "An empty can, good for recycling"},
+
+    -- Loaf Robbery 
+    drill_bit = { name = "drill_bit", label = "Drill Bit", weight = 10, type = "item", image = "drillbit.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "" },
+    drill = { name = "drillbit", label = "Drill ", weight = 10, type = "item", image = "drill.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "" },
+    thermite = { name = "thermite", label = "Thermite", weight = 10, type = "item", image = "thermite.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "" },
+    laptop = { name = "laptop", label = "Laptop", weight = 10, type = "item", image = "laptop.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "" },
+    usb_device = { name = "usb_device", label = "USB Device", weight = 10, type = "item", image = "usb.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "" },
+
     -- Crafting table's
     item_bench = {name = "item_bench", label = "Workbench", weight = 15000, type = "item", image = "workbench.png", unique = true, useable = true, shouldClose = false, combinable = nil, description = "A workbench to craft items."},
     attachment_bench = {name = "attachment_bench", label = "Attachment Workbench", weight = 15000, type = "item", image = "attworkbench.png", unique = true, useable = true, shouldClose = false, combinable = nil, description = "A workbench for crafting attachments."},
