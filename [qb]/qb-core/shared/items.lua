@@ -496,9 +496,9 @@ QBShared.Items = {
 
     -- Loaf Robbery 
     drill_bit = { name = "drill_bit", label = "Drill Bit", weight = 10, type = "item", image = "drillbit.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "" },
-    drill = { name = "drillbit", label = "Drill ", weight = 10, type = "item", image = "drill.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "" },
     thermite = { name = "thermite", label = "Thermite", weight = 10, type = "item", image = "thermite.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "" },
     laptop = { name = "laptop", label = "Laptop", weight = 10, type = "item", image = "laptop.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "" },
+    gold = { name = "gold", label = "Gold", weight = 10, type = "item", image = "gold.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "" },
     usb_device = { name = "usb_device", label = "USB Device", weight = 10, type = "item", image = "usb.png", unique = false, useable = false, shouldClose = false, combinable = nil, description = "" },
 
     -- Crafting table's
