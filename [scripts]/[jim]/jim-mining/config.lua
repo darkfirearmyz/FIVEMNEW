@@ -3,10 +3,10 @@ Config = {
 	System = {
 		Debug = false, -- enable debug mode
 
-		Menu = "ox",			-- "qb", "ox", "gta"
-		ProgressBar = "gta",	-- "qb", "ox", "gta"
-		Notify = "gta",			-- "qb", "ox", "gta"
-		drawText = "gta"			-- "qb", "ox", "gta"
+		Menu = "qb",			-- "qb", "ox", "gta"
+		ProgressBar = "qb",	-- "qb", "ox", "gta"
+		Notify = "qb",			-- "qb", "ox", "gta"
+		drawText = "qb"			-- "qb", "ox", "gta"
 
 	},
 	General = {

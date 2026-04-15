@@ -10,8 +10,8 @@ local weapons = {
 }
 
 local ammo = {
-    {label = "Pistol Ammo", item = "pistol_ammo", price = 100},
-    {label = "SMG Ammo", item = "smg_ammo", price = 150}
+    {label = "Pistol Ammo", item = "pistol_ammo", price = 100, amount = 100},
+    {label = "SMG Ammo", item = "smg_ammo", price = 150, amount = 100}
 }
 
 -- Create NPC
@@ -79,7 +79,6 @@ end)
 function OpenWeaponMenu()
     local menu = {
         {header = "🔫 Weapon Dealer", isMenuHeader = true},
-
         {header = "⬇️ Weapons", isMenuHeader = true},
     }
 
@@ -103,13 +102,14 @@ function OpenWeaponMenu()
     for _, v in pairs(ammo) do
         menu[#menu + 1] = {
             header = v.label .. " - $" .. v.price,
-            txt = "Purchase " .. v.label,
+            txt = "Get 100 ammo",
             params = {
                 isServer = true,
                 event = "npc_weaponshop:server:buyAmmo",
                 args = {
                     item = v.item,
-                    price = v.price
+                    price = v.price,
+                    amount = v.amount -- ✅ THIS is the fix
                 }
             }
         }
