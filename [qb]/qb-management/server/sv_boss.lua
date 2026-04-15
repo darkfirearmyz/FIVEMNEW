@@ -127,7 +127,7 @@ RegisterNetEvent('qb-bossmenu:server:FireEmployee', function(target)
 			TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Job Fire', 'red', Player.PlayerData.charinfo.firstname .. ' ' .. Player.PlayerData.charinfo.lastname .. ' successfully fired ' .. Employee.PlayerData.charinfo.firstname .. ' ' .. Employee.PlayerData.charinfo.lastname .. ' (' .. Player.PlayerData.job.name .. ')', false)
 
 			if Employee.PlayerData.source then -- Player is online
-				TriggerClientEvent('QBCore:Notify', Employee.PlayerData.source, 'You have been fired! Good luck.', 'error')
+				TriggerClientEvent('QBCore:Notify', Employee.PlayerData.source, 'Your Boss Doesnt Like you Fuck off', 'error')
 			end
 		else
 			TriggerClientEvent('QBCore:Notify', src, 'Error..', 'error')
