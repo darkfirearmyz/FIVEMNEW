@@ -5,11 +5,11 @@ Config.Debug = false -- enable debug prints?
 
 Config.Language = "en" -- see shared/locales.lua
 
-Config.InteractSystem = "target" -- target or native (press E)
+Config.InteractSystem = "auto" -- target or native (press E)
 Config.UsableItems = true -- allow using items (drill, thermite etc) from the inventory?
 Config.ServerSideOnly = false -- should ALL entities be created on the server?
 
-Config.Framework = "qb" --[[
+Config.Framework = "auto" --[[
     The framework you use. Modify in in the framework folder.
     - esx
     - qb-core
@@ -81,34 +81,34 @@ Config.Rewards = {
         tier = 1,
         cash = {
             {
-                min = 10000,
-                max = 20000
+                min = 1000000,
+                max = 2000000
                 -- since no item is defined, it will give money
             }
         },
         cash_trolley = {
             {
-                min = 20000,
-                max = 40000
+                min = 2000000,
+                max = 4000000
             }
         },
         gold = {
             {
-                min = 3,
-                max = 10,
+                min = 3000000,
+                max = 100000,
                 item = "gold"
             }
         },
         drill = {
             {
-                min = 1,
-                max = 5,
+                min = 1000000,
+                max = 5000000,
                 item = "gold",
-                chance = 33 -- 33% to get 1-5 gold
+                chance = 100 -- 33% to get 1-5 gold
             },
             {
-                min = 2500,
-                max = 7500
+                min = 250000000,
+                max = 750000000
             }
         }
     },
