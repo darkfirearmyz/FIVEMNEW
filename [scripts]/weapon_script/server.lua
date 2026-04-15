@@ -31,7 +31,7 @@ RegisterNetEvent("npc_weaponshop:server:buyAmmo", function(data)
     if Player.Functions.GetMoney("cash") >= data.price then
         Player.Functions.RemoveMoney("cash", data.price)
 
-        Player.Functions.AddItem(data.item, 1)
+        Player.Functions.AddItem(data.item, 100)
 
         TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[data.item], "add")
         TriggerClientEvent('QBCore:Notify', src, "Purchased " .. data.item, "success")

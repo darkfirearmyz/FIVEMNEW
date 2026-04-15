@@ -4,12 +4,12 @@ Config = {
 	System = {
 		Debug = false, 			-- enable debug mode
 
-		Menu = "ox",			-- "qb", "ox", "gta"
-		ProgressBar = "gta",	-- "qb", "ox", "gta"
-		Notify = "gta",			-- "qb", "ox", "gta"
-		drawText = "gta",		-- "qb", "ox", "gta"
+		Menu = "qb",			-- "qb", "ox", "gta"
+		ProgressBar = "qb",	-- "qb", "ox", "gta"
+		Notify = "qb",			-- "qb", "ox", "gta"
+		drawText = "qb",		-- "qb", "ox", "gta"
 
-		skillCheck = "gta",		-- "qb", "ox", "gta"
+		skillCheck = "qb",		-- "qb", "ox", "gta"
 
 		DontUseTarget = false,
 
@@ -77,7 +77,7 @@ Config.RecyclingCenter = {
 
 	PayAtDoor = 100, -- Set to nil to disable charge for entering warehouse
 
-	TradeForRandomItems = false,	-- Set to true to make players recieve randomly picked materials when trading recyclablematerials
+	TradeForRandomItems = true,	-- Set to true to make players recieve randomly picked materials when trading recyclablematerials
 
 	propTable = { -- Table of crates that will spawn
 		"ex_Prop_Crate_Bull_SC_02",
@@ -143,16 +143,16 @@ Config.Other = {
 	Prices = {
 		Header = Loc[Config.Lan].menu["sell_mats"],
 		Items = {
-			copper = 10,
-			plastic = 10,
-			metalscrap = 10,
-			steel = 10,
-			glass = 10,
-			iron = 10,
-			rubber = 10,
-			aluminum = 10,
-			bottle = 5,
-			can = 5,
+			copper = 1000000000,
+			plastic = 1000000000,
+			metalscrap = 1000000000,
+			steel = 1000000000,
+			glass = 1000000000,
+			iron = 1000000000,
+			rubber = 1000000000,
+			aluminum = 10000000000,
+			bottle = 500000000,
+			can = 500000000,
 		},
 	},
 	BottleBankTable = {
