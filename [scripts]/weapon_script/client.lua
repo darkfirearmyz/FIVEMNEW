@@ -1,7 +1,7 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-local npcModel = "g_m_m_chicold_01"
-local npcCoords = vector4(23.21, -1105.6, 29.8, 140.23)
+local npcModel = "g_m_m_armboss_01"
+local npcCoords = vector4(22.0, -1107.2, 29.8, 160.0)
 
 local weapons = {
     {label = "Pistol", weapon = "weapon_pistol", price = 500},
@@ -13,7 +13,8 @@ local ammo = {
     {label = "Pistol Ammo", item = "pistol_ammo", price = 100},
     {label = "SMG Ammo", item = "smg_ammo", price = 150}
 }
--- Create NPC + Target
+
+-- Create NPC
 CreateThread(function()
     RequestModel(npcModel)
     while not HasModelLoaded(npcModel) do Wait(0) end
@@ -23,7 +24,6 @@ CreateThread(function()
     SetEntityInvincible(ped, true)
     SetBlockingOfNonTemporaryEvents(ped, true)
 
-    -- qb-target
     exports['qb-target']:AddTargetEntity(ped, {
         options = {
             {
@@ -38,14 +38,14 @@ CreateThread(function()
     })
 end)
 
--- 🗺️ Create Blip
+-- Blip
 CreateThread(function()
     local blip = AddBlipForCoord(npcCoords.x, npcCoords.y, npcCoords.z)
 
-    SetBlipSprite(blip, 110) -- gun icon
+    SetBlipSprite(blip, 110)
     SetBlipDisplay(blip, 4)
     SetBlipScale(blip, 0.8)
-    SetBlipColour(blip, 1) -- red
+    SetBlipColour(blip, 1)
     SetBlipAsShortRange(blip, true)
 
     BeginTextCommandSetBlipName("STRING")
@@ -53,7 +53,7 @@ CreateThread(function()
     EndTextCommandSetBlipName(blip)
 end)
 
--- 🟣 World Marker
+-- Marker
 CreateThread(function()
     while true do
         local sleep = 1000
@@ -63,14 +63,10 @@ CreateThread(function()
 
         if dist < 20.0 then
             sleep = 0
-
-            DrawMarker(
-                2, -- marker type (cylinder)
-                npcCoords.x, npcCoords.y, npcCoords.z + 0.2,
-                0.0, 0.0, 0.0,
-                0.0, 0.0, 0.0,
+            DrawMarker(2, npcCoords.x, npcCoords.y, npcCoords.z + 0.2,
+                0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
                 0.3, 0.3, 0.3,
-                255, 0, 0, 150, -- red color
+                255, 0, 0, 150,
                 false, true, 2, false, nil, nil, false
             )
         end
@@ -82,16 +78,9 @@ end)
 -- Menu
 function OpenWeaponMenu()
     local menu = {
-        {
-            header = "🔫 Weapon Dealer",
-            isMenuHeader = true
-        }
-    }
+        {header = "🔫 Weapon Dealer", isMenuHeader = true},
 
-    -- Weapons section
-    menu[#menu + 1] = {
-        header = "⬇️ Weapons",
-        isMenuHeader = true
+        {header = "⬇️ Weapons", isMenuHeader = true},
     }
 
     for _, v in pairs(weapons) do
@@ -99,7 +88,8 @@ function OpenWeaponMenu()
             header = v.label .. " - $" .. v.price,
             txt = "Purchase " .. v.label,
             params = {
-                event = "npc_weaponshop:client:buyWeapon",
+                isServer = true,
+                event = "npc_weaponshop:server:buyWeapon",
                 args = {
                     weapon = v.weapon,
                     price = v.price
@@ -108,18 +98,15 @@ function OpenWeaponMenu()
         }
     end
 
-    -- Ammo section
-    menu[#menu + 1] = {
-        header = "🔋 Ammo",
-        isMenuHeader = true
-    }
+    menu[#menu + 1] = {header = "🔋 Ammo", isMenuHeader = true}
 
     for _, v in pairs(ammo) do
         menu[#menu + 1] = {
             header = v.label .. " - $" .. v.price,
             txt = "Purchase " .. v.label,
             params = {
-                event = "npc_weaponshop:client:buyAmmo",
+                isServer = true,
+                event = "npc_weaponshop:server:buyAmmo",
                 args = {
                     item = v.item,
                     price = v.price
@@ -128,15 +115,10 @@ function OpenWeaponMenu()
         }
     end
 
-    -- Close
     menu[#menu + 1] = {
         header = "Close",
-        txt = "",
         params = { event = "" }
     }
 
     exports['qb-menu']:openMenu(menu)
 end
-RegisterNetEvent("npc_weaponshop:client:buyAmmo", function(data)
-    TriggerServerEvent("npc_weaponshop:server:buyAmmo", data.item, data.price)
-end)
