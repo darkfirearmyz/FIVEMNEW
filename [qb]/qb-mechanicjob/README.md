@@ -22,7 +22,7 @@ Mechanic Job for QB-Core Framework :mechanic:
 
 ## Dependencies
 - qb-core
-- qb-inventory
+- lj-inventory
 - qb-target
 
 ## Screenshots
