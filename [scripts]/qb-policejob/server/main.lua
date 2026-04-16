@@ -103,6 +103,21 @@ QBCore.Functions.CreateCallback('police:server:IsPoliceForcePresent', function(_
     cb(retval)
 end)
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
+CreateThread(function()
+    QBCore.Functions.CreateShop("police_armory", {
+        label = "Police Armoury",
+        slots = 10,
+        items = {
+            { name = "weapon_pistol", price = 0, amount = 1, slot = 1 },
+            { name = "weapon_stungun", price = 0, amount = 1, slot = 2 },
+            { name = "handcuffs", price = 0, amount = 5, slot = 3 },
+            { name = "radio", price = 0, amount = 1, slot = 4 },
+        }
+    })
+end)
+
 -- Events
 
 AddEventHandler('onResourceStart', function(resourceName)
