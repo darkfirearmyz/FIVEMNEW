@@ -1,7 +1,7 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
 local npcModel = "g_m_y_lost_03"
-local npcCoords = vector4(22.0, -1107.2, 29.8, 160.0)
+local npcCoords = vector4(-34.88, -1510.55, 30.39, 359.68)
 
 local weapons = {
     {label = "Pistol", weapon = "weapon_pistol", price = 5000000},
