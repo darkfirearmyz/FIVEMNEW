@@ -152,8 +152,8 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
         end
     end
 
-    if GetResourceState('lj-inventory') ~= 'missing' then
-        PlayerData.items = exports['lj-inventory']:LoadInventory(PlayerData.source, PlayerData.citizenid)
+    if GetResourceState('qb-inventory') ~= 'missing' then
+        PlayerData.items = exports['qb-inventory']:LoadInventory(PlayerData.source, PlayerData.citizenid)
     end
 
     return QBCore.Player.CreatePlayer(PlayerData, Offline)
@@ -505,7 +505,7 @@ function QBCore.Player.Save(source)
             position = json.encode(pcoords),
             metadata = json.encode(PlayerData.metadata)
         })
-        if GetResourceState('lj-inventory') ~= 'missing' then exports['lj-inventory']:SaveInventory(source) end
+        if GetResourceState('qb-inventory') ~= 'missing' then exports['qb-inventory']:SaveInventory(source) end
         QBCore.ShowSuccess(resourceName, PlayerData.name .. ' PLAYER SAVED!')
     else
         QBCore.ShowError(resourceName, 'ERROR QBCORE.PLAYER.SAVE - PLAYERDATA IS EMPTY!')
@@ -526,7 +526,7 @@ function QBCore.Player.SaveOffline(PlayerData)
             position = json.encode(PlayerData.position),
             metadata = json.encode(PlayerData.metadata)
         })
-        if GetResourceState('lj-inventory') ~= 'missing' then exports['lj-inventory']:SaveInventory(PlayerData, true) end
+        if GetResourceState('qb-inventory') ~= 'missing' then exports['qb-inventory']:SaveInventory(PlayerData, true) end
         QBCore.ShowSuccess(resourceName, PlayerData.name .. ' OFFLINE PLAYER SAVED!')
     else
         QBCore.ShowError(resourceName, 'ERROR QBCORE.PLAYER.SAVEOFFLINE - PLAYERDATA IS EMPTY!')
@@ -601,28 +601,28 @@ end
 -- Inventory Backwards Compatibility
 
 function QBCore.Player.SaveInventory(source)
-    if GetResourceState('lj-inventory') == 'missing' then return end
-    exports['lj-inventory']:SaveInventory(source, false)
+    if GetResourceState('qb-inventory') == 'missing' then return end
+    exports['qb-inventory']:SaveInventory(source, false)
 end
 
 function QBCore.Player.SaveOfflineInventory(PlayerData)
-    if GetResourceState('lj-inventory') == 'missing' then return end
-    exports['lj-inventory']:SaveInventory(PlayerData, true)
+    if GetResourceState('qb-inventory') == 'missing' then return end
+    exports['qb-inventory']:SaveInventory(PlayerData, true)
 end
 
 function QBCore.Player.GetTotalWeight(items)
-    if GetResourceState('lj-inventory') == 'missing' then return end
-    return exports['lj-inventory']:GetTotalWeight(items)
+    if GetResourceState('qb-inventory') == 'missing' then return end
+    return exports['qb-inventory']:GetTotalWeight(items)
 end
 
 function QBCore.Player.GetSlotsByItem(items, itemName)
-    if GetResourceState('lj-inventory') == 'missing' then return end
-    return exports['lj-inventory']:GetSlotsByItem(items, itemName)
+    if GetResourceState('qb-inventory') == 'missing' then return end
+    return exports['qb-inventory']:GetSlotsByItem(items, itemName)
 end
 
 function QBCore.Player.GetFirstSlotByItem(items, itemName)
-    if GetResourceState('lj-inventory') == 'missing' then return end
-    return exports['lj-inventory']:GetFirstSlotByItem(items, itemName)
+    if GetResourceState('qb-inventory') == 'missing' then return end
+    return exports['qb-inventory']:GetFirstSlotByItem(items, itemName)
 end
 
 -- Util Functions

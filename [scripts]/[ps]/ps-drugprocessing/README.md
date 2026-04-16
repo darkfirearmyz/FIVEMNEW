@@ -94,7 +94,7 @@ qb-core/shared/item.lua
 
 # Add icon images
 
-lj-inventory > html > images
+qb-inventory > html > images
 
 # Dependencies
 * [PolyZone](https://github.com/mkafrin/PolyZone)

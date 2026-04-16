@@ -1,7 +1,7 @@
 Items, Vehicles, Jobs, Gangs = nil, nil, nil, nil
 
 -- Shared Exports Initialization
-Exports.PSInv = isStarted("lj-inventory") and "lj-inventory" or Exports.PSInv
+Exports.PSInv = isStarted("qb-inventory") and "qb-inventory" or Exports.PSInv
 
 OXLibExport, QBXExport, QBExport, ESXExport, OXCoreExport =
     Exports.OXLibExport or "",

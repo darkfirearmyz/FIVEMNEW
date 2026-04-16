@@ -109,7 +109,7 @@ RegisterNetEvent('qb-weapons:client:AddAmmo', function(ammoType, amount, itemDat
         TaskReloadWeapon(ped, false)
         TriggerServerEvent('qb-weapons:server:UpdateWeaponAmmo', CurrentWeaponData, total + amount)
         TriggerServerEvent('qb-weapons:server:removeWeaponAmmoItem', itemData)
-        TriggerEvent('lj-inventory:client:ItemBox', QBCore.Shared.Items[itemData.name], 'remove')
+        TriggerEvent('qb-inventory:client:ItemBox', QBCore.Shared.Items[itemData.name], 'remove')
         TriggerEvent('QBCore:Notify', Lang:t('success.reloaded'), 'success')
     end, function()
         QBCore.Functions.Notify(Lang:t('error.canceled'), 'error')
@@ -138,7 +138,7 @@ RegisterNetEvent('qb-weapons:client:UseWeapon', function(weaponData, shootbool)
         GiveWeaponToPed(ped, weaponHash, 10, false, false)
         SetPedAmmo(ped, weaponHash, 10)
         SetCurrentPedWeapon(ped, weaponHash, true)
-        TriggerServerEvent('lj-inventory:server:snowball', 'remove')
+        TriggerServerEvent('qb-inventory:server:snowball', 'remove')
         TriggerEvent('qb-weapons:client:SetCurrentWeapon', weaponData, shootbool)
         currentWeapon = weaponName
     else

@@ -49,11 +49,11 @@ RegisterNetEvent('qb-houserobbery:server:searchFurniture', function(cabin, house
 
             if not itemInfo.unique then
                 local amount = math.random(selectedItem.min, selectedItem.max)
-                exports['lj-inventory']:AddItem(src, selectedItem.item, amount, false, false, 'qb-houserobbery:server:searchFurniture')
+                exports['qb-inventory']:AddItem(src, selectedItem.item, amount, false, false, 'qb-houserobbery:server:searchFurniture')
             else
-                exports['lj-inventory']:AddItem(src, selectedItem.item, 1, false, false, 'qb-houserobbery:server:searchFurniture')
+                exports['qb-inventory']:AddItem(src, selectedItem.item, 1, false, false, 'qb-houserobbery:server:searchFurniture')
             end
-            TriggerClientEvent('lj-inventory:client:ItemBox', src, itemInfo, 'add')
+            TriggerClientEvent('qb-inventory:client:ItemBox', src, itemInfo, 'add')
             Wait(500)
         end
     else
@@ -66,11 +66,11 @@ end)
 RegisterNetEvent('qb-houserobbery:server:removeAdvancedLockpick', function()
     local Player = QBCore.Functions.GetPlayer(source)
     if not Player then return end
-    exports['lj-inventory']:RemoveItem(source, 'advancedlockpick', 1, false, 'qb-houserobbery:server:removeAdvancedLockpick')
+    exports['qb-inventory']:RemoveItem(source, 'advancedlockpick', 1, false, 'qb-houserobbery:server:removeAdvancedLockpick')
 end)
 
 RegisterNetEvent('qb-houserobbery:server:removeLockpick', function()
     local Player = QBCore.Functions.GetPlayer(source)
     if not Player then return end
-    exports['lj-inventory']:RemoveItem(source, 'lockpick', 1, false, 'qb-houserobbery:server:removeLockpick')
+    exports['qb-inventory']:RemoveItem(source, 'lockpick', 1, false, 'qb-houserobbery:server:removeLockpick')
 end)

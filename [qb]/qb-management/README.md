@@ -8,7 +8,7 @@
 - [qb-smallresources](https://github.com/qbcore-framework/qb-smallresources) (For the Logs)
 - [qb-input](https://github.com/qbcore-framework/qb-input)
 - [qb-menu](https://github.com/qbcore-framework/qb-menu)
-- [lj-inventory](https://github.com/qbcore-framework/lj-inventory)
+- [qb-inventory](https://github.com/qbcore-framework/qb-inventory)
 - [qb-clothing](https://github.com/qbcore-framework/qb-clothing)
 
 # License

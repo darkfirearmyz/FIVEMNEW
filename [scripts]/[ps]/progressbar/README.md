@@ -82,9 +82,9 @@ end)
 
 You will need to check the client/main.lua for the line
 ```lua
-local img = "nui://lj-inventory/html/"
+local img = "nui://qb-inventory/html/"
 ```
-change this to the inventory system you use, for example `"nui://lj-inventory/html/"` or `"nui://lj-inventory/html/"`
+change this to the inventory system you use, for example `"nui://qb-inventory/html/"` or `"nui://qb-inventory/html/"`
 
 Then like the preview above, instead of:
 ```lua

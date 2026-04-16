@@ -13,7 +13,7 @@ local Exports = {
     OXCoreExport = "ox_core",
 
     OXInv = "ox_inventory",
-    QBInv = "lj-inventory",
+    QBInv = "qb-inventory",
     PSInv = "ps-inventory",
     CoreInv = "core_inventory",
     CodeMInv = "codem-inventory",
