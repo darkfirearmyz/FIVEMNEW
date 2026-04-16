@@ -60,8 +60,8 @@ end
 --- @return boolean boolean True if it exists
 ---@usage
 --- ```lua
---- if checkExportExists("qb-inventory", "OpenInventory") then
----     exports["qb-inventory"]:OpenInventory()
+--- if checkExportExists("lj-inventory", "OpenInventory") then
+---     exports["lj-inventory"]:OpenInventory()
 --- end
 --- ```
 function checkExportExists(resource, export)

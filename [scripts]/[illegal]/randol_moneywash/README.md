@@ -6,7 +6,7 @@ A script that cleans dirty money. Config options are in the server file for enab
 
 - ESX/QB/ND: Counts your total 'black_money' and turns it into cash.
 
-**Note**: For QB, qb-inventory uses info.worth for the marked bills worth. Ox inventory will use black_money as decided by the qbox team. You will have to make adjustments to the bridge yourself if this does not fit your server.
+**Note**: For QB, lj-inventory uses info.worth for the marked bills worth. Ox inventory will use black_money as decided by the qbox team. You will have to make adjustments to the bridge yourself if this does not fit your server.
 
 ## Requirements
 
