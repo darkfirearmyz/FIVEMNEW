@@ -4,15 +4,33 @@ local npcModel = "g_m_y_lost_03"
 local npcCoords = vector4(-34.88, -1510.55, 30.39, 359.68)
 
 local weapons = {
-    {label = "Pistol", weapon = "weapon_pistol", price = 5000000},
+    {label = "Combat Pistol", weapon = "WEAPON_COMBATPISTOL", price = 5000000},
     {label = "SMG", weapon = "weapon_smg", price = 1500000},
-    {label = "Knife", weapon = "weapon_knife", price = 25000}
+    {label = "Double-Action Revolver", weapon = "WEAPON_DOUBLEACTION", price = 2250000}
+    {label = "Assault Rifle", weapon = "WEAPON_ASSAULTRIFLE", price = 50000000}
 }
 
 local ammo = {
-    {label = "Pistol Ammo", item = "pistol_ammo", price = 100, amount = 100},
-    {label = "SMG Ammo", item = "smg_ammo", price = 150, amount = 100}
+    {label = "Pistol Ammo", item = "pistol_ammo", price = 100, amount = 250},
+    {label = "SMG Ammo", item = "smg_ammo", price = 150, amount = 250},
+    {label = "Revolver Ammo", item = "pistol_ammo", price = 120, amount = 250},
+    {label = "Rifle Ammo", item = "rifle_ammo", price = 300, amount = 250}
 }
+-- events
+
+RegisterNetEvent("npc_weaponshop:client:giveAmmo", function(weapon)
+    local ped = PlayerPedId()
+    local weaponHash = GetHashKey(weapon)
+
+    -- Give weapon to ped (ensures it's equipped)
+    GiveWeaponToPed(ped, weaponHash, 0, false, true)
+
+    -- Add ammo
+    AddAmmoToPed(ped, weaponHash, 250)
+
+    -- Optional: equip it immediately
+    SetCurrentPedWeapon(ped, weaponHash, true)
+end)
 
 -- Create NPC
 CreateThread(function()
