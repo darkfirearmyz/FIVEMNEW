@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mechanic Menu</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id="app" class="hidden">
+
+  <div class="panel">
+    <div class="panel-header">
+      <span class="icon">🔧</span>
+      <span>Mechanic Workshop</span>
+      <button class="close-btn" id="closeBtn">✕</button>
+    </div>
+
+    <!-- Vehicle Health -->
+    <div class="health-section">
+      <div class="health-bar-wrap">
+        <label>Engine</label>
+        <div class="bar-track"><div class="bar-fill engine-bar" id="engineBar"></div></div>
+        <span class="bar-val" id="engineVal">--</span>
+      </div>
+      <div class="health-bar-wrap">
+        <label>Body</label>
+        <div class="bar-track"><div class="bar-fill body-bar" id="bodyBar"></div></div>
+        <span class="bar-val" id="bodyVal">--</span>
+      </div>
+    </div>
+
+    <!-- Repair Actions -->
+    <div class="section-title">Repair</div>
+    <div class="repair-grid">
+      <button class="repair-btn" data-part="engine">
+        <span class="btn-icon">⚙️</span>
+        <span class="btn-label">Engine</span>
+        <span class="btn-price" id="price-engine">$0</span>
+      </button>
+      <button class="repair-btn" data-part="body">
+        <span class="btn-icon">🚗</span>
+        <span class="btn-label">Body</span>
+        <span class="btn-price" id="price-body">$0</span>
+      </button>
+      <button class="repair-btn" data-part="tyres">
+        <span class="btn-icon">🔄</span>
+        <span class="btn-label">Tyres</span>
+        <span class="btn-price" id="price-tyres">$0</span>
+      </button>
+      <button class="repair-btn full" data-part="full">
+        <span class="btn-icon">⭐</span>
+        <span class="btn-label">Full Repair</span>
+        <span class="btn-price" id="price-full">$0</span>
+      </button>
+    </div>
+
+    <!-- Billing -->
+    <div class="section-title">Bill Player</div>
+    <div class="bill-section">
+      <select id="playerSelect">
+        <option value="">— Select Nearby Player —</option>
+      </select>
+      <select id="billPart">
+        <option value="engine">Engine — $<span id="bp-engine"></span></option>
+        <option value="body">Body — $<span id="bp-body"></span></option>
+        <option value="tyres">Tyres — $<span id="bp-tyres"></span></option>
+        <option value="full">Full Repair — $<span id="bp-full"></span></option>
+      </select>
+      <button class="bill-btn" id="billBtn">Send Invoice</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
